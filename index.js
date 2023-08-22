@@ -15,7 +15,9 @@ app.use("/user", router);
 app.use("/company", companyRouter);
 app.use("/job", jobRouter);
 
-const openai = new OpenAI();
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 app.post("/chat", async (req, res) => {
   const completion = await openai.completions.create({
     model: "text-davinci-003",
