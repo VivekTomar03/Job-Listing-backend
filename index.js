@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { connection } = require("./config/db");
-import 'abort-controller/polyfill';
+require('abort-controller/polyfill');
 
 const router = require("./routes/userRoutes");
 const jobRouter = require("./routes/jobRoute");
