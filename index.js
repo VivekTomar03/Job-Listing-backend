@@ -8,6 +8,7 @@ const jobRouter = require("./routes/jobRoute");
 const companyRouter = require("./routes/companyRoute");
 const app = express();
 const { Configuration, OpenAIApi } = require('openai');
+const { CourseRouter } = require("./routes/courseRoute");
 
 require("dotenv").config();
 app.use(express.json());
@@ -15,7 +16,7 @@ app.use(cors());
 app.use("/user", router);
 app.use("/company", companyRouter);
 app.use("/job", jobRouter);
-
+app.use("/" , CourseRouter )
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; 
 
 const configuration = new Configuration({
